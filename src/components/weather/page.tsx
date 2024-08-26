@@ -7,9 +7,8 @@ export default function Weather() {
   const [weather, setWeather] = useState<any>(null);
 
   async function fetchWeather() {
-    const apiKey = 'd683f7e0c407415ebe8120030242508';
     const response = await fetch(
-      `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`
+      `https://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${location}`
     );
     const data = await response.json();
     setWeather(data);
